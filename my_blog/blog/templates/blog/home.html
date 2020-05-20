@@ -1,0 +1,20 @@
+<html>
+
+<head>
+<title>Welcome, My blog!</title>
+</head>
+
+<body>
+
+<h1>Post List</h1>
+<ul>
+
+{% for post in latest_post %}
+<li>{{ post }}</li><br> 작성일 : {{ post.str_pub_date }} <br> {{ post.views }} <br> {{ post.comment }}
+{% endfor %}
+
+</ul>
+
+</body>
+
+</html>
