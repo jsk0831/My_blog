@@ -1,0 +1,18 @@
+<html>
+<head>
+<title>{{ post }}</title>
+</head>
+
+<body>
+
+<h1>{{ post }}</h1>
+작성일: {{ post.get_pub_date }}
+조회수: {{ post.views }}
+댓글: {{ post.comments }}
+<br>
+
+<p>{{ post.content }}</p>
+
+</body>
+
+</html>

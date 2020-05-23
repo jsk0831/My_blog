@@ -10,7 +10,7 @@
 <ul>
 
 {% for post in latest_post %}
-<li>{{ post }}</li><br> 작성일 : {{ post.str_pub_date }} <br> {{ post.views }} <br> {{ post.comment }}
+<li><a href = "{% url 'blog:detail' post.id %}">{{ post }}</a></li> 작성일: {{ post.get_pub_date }} 조회: {{ post.views }} 댓글: {{ post.comments }}
 {% endfor %}
 
 </ul>
