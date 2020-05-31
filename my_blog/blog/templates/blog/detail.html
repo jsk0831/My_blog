@@ -10,8 +10,25 @@
 조회수: {{ post.views }}
 댓글: {{ post.comments }}
 <br>
+<br>
+<p>
+본문: <br>
+{{ post.content }} <br>
+</p>
 
-<p>{{ post.content }}</p>
+
+<p> - 댓글 - <br>
+{% for comment in comments %}
+작성자: {{ comment.user.name }} 작성일: {{ comment.get_pub_date }}<br>
+내용: {{ comment.content }}<br>
+</p><br>
+{% endfor %}
+
+<form action = '{% url 'blog:detail' post.id %}' method = 'post'>
+{% csrf_token %}
+{{ form.as_p }}
+<input type = 'submit' value = '작성'>
+</form>
 
 </body>
 
