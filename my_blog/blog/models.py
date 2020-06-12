@@ -33,7 +33,10 @@ class Comment(models.Model):
 	def plus_like(self):
 		self.like += 1
 		self.save()
-
+	def add_comment( content, post, user_id ):
+		Comment.objects.create( content = content, post_id = post.id, user_id = user_id )
+		# Post의 댓글 수 추가
+		post.update_comments( len( Comment.objects.filter( post_id = post.id ) ) )
 
 class User(models.Model):
 	name = models.CharField( max_length = 20 )

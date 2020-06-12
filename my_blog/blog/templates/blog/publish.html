@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<title> * 게시물 작성</title>
+	</head>
+
+	<body>
+
+		<h1>게시물 작성</h1>
+		<form action = '{% url 'blog:publish' %}' method = 'post'>
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type = 'submit' value = '작성'>
+		<input type = "button" value = "취소" onClick = "location.href = '{% url 'blog:home' %}'">
+		</form>
+
+	</body>
+
+</html>

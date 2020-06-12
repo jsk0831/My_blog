@@ -1,22 +1,22 @@
 <html>
 
-<head>
-<title>Welcome, My blog!</title>
-</head>
+	<head>
+		<title>Welcome, My blog!</title>
+	</head>
 
-<body>
+	<body>
 
-<h1>Post List</h1>
-<ul>
+		<h1>Post List</h1>
+		<ul>
 
-{% for post in latest_post %}
-<li><a href = "{% url 'blog:detail' post.id %}">{{ post }}</a></li> 작성일: {{ post.get_pub_date }} 조회: {{ post.views }} 댓글: {{ post.comments }}
-{% endfor %}
+			{% for post in latest_post %}
+			<li><a href = "{% url 'blog:detail' post.id %}">{{ post }}</a></li> 작성일: {{ post.get_pub_date }} 조회: {{ post.views }} 댓글: {{ post.comments }}
+			{% endfor %}
 
-</ul>
-<br>
-<br><br><br>
+		</ul>
 
-</body>
+		<input type = "button" value = "글쓰기" onClick = "location.href = '{% url 'blog:publish' %}'">
+
+	</body>
 
 </html>
